@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010-2023. Institut Pasteur.
+ * Copyright (c) 2010-2024. Institut Pasteur.
  *
  * This file is part of Icy.
  * Icy is free software: you can redistribute it and/or modify
@@ -18,8 +18,9 @@
 
 package plugins.fab.ROITagger;
 
-public class Tag {
+import org.jetbrains.annotations.Contract;
 
+public class Tag {
     private String name;
 
     public String getName() {
@@ -30,6 +31,8 @@ public class Tag {
         this.name = name;
     }
 
+    @Contract(pure = true)
     public Tag(final String name) {
+        this.name = name;
     }
 }

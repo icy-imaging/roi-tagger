@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010-2023. Institut Pasteur.
+ * Copyright (c) 2010-2024. Institut Pasteur.
  *
  * This file is part of Icy.
  * Icy is free software: you can redistribute it and/or modify
@@ -18,14 +18,15 @@
 
 package plugins.fab.ROITagger;
 
-import icy.canvas.Canvas2D;
-import icy.canvas.IcyCanvas;
-import icy.painter.Overlay;
-import icy.roi.ROI;
-import icy.roi.ROI2D;
-import icy.sequence.Sequence;
-import icy.util.GraphicsUtil;
-import icy.util.XMLUtil;
+import org.bioimageanalysis.icy.gui.GraphicsUtil;
+import org.bioimageanalysis.icy.gui.canvas.Canvas2D;
+import org.bioimageanalysis.icy.gui.canvas.IcyCanvas;
+import org.bioimageanalysis.icy.io.xml.XMLUtil;
+import org.bioimageanalysis.icy.model.overlay.Overlay;
+import org.bioimageanalysis.icy.model.roi.ROI;
+import org.bioimageanalysis.icy.model.roi.ROI2D;
+import org.bioimageanalysis.icy.model.sequence.Sequence;
+import org.jetbrains.annotations.Contract;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -41,7 +42,6 @@ import java.util.ArrayList;
  * @author Fabrice de Chaumont
  */
 public class TagPainter extends Overlay {
-
     // TODO: cache tag render.
     // Will be possible when XML Persitance Listener will be introduced in the kernel of ICY.
     //HashMap< ROI , ArrayList<Tag> > roi2TagList = new HashMap< ROI , ArrayList<Tag> >();
@@ -93,9 +93,8 @@ public class TagPainter extends Overlay {
                             name = " " + name + " ";
                             final Rectangle2D nameBounds = GraphicsUtil.getStringBounds(g, font, name);
 
-                            if (roi instanceof ROI2D) {
+                            if (roi instanceof final ROI2D roi2D) {
                                 //test++;
-                                final ROI2D roi2D = (ROI2D) roi;
                                 displayTxtList.add(new DisplayTxt(name, new Rectangle2D.Double(
                                         roi2D.getBounds2D().getCenterX() - nameBounds.getWidth() / 2,
                                         roi2D.getBounds2D().getCenterY() + offsetY,
@@ -155,6 +154,7 @@ public class TagPainter extends Overlay {
         String string;
         Rectangle2D bounds;
 
+        @Contract(pure = true)
         public DisplayTxt(final String string, final Rectangle2D bounds) {
             this.string = string;
             this.bounds = bounds;

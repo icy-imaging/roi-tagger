@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010-2023. Institut Pasteur.
+ * Copyright (c) 2010-2024. Institut Pasteur.
  *
  * This file is part of Icy.
  * Icy is free software: you can redistribute it and/or modify
@@ -18,9 +18,10 @@
 
 package plugins.fab.ROITagger;
 
-import icy.gui.main.GlobalSequenceListener;
-import icy.main.Icy;
-import icy.sequence.Sequence;
+import org.bioimageanalysis.icy.Icy;
+import org.bioimageanalysis.icy.gui.listener.GlobalSequenceListener;
+import org.bioimageanalysis.icy.model.sequence.Sequence;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,6 @@ import java.util.List;
  * @author Fabrice de Chaumont
  */
 public class TagPainterManager implements GlobalSequenceListener {
-
     static TagPainter tagPainter = new TagPainter();
 
     public TagPainterManager() {
@@ -42,11 +42,10 @@ public class TagPainterManager implements GlobalSequenceListener {
         }
 
         Icy.getMainInterface().addGlobalSequenceListener(this);
-
     }
 
     @Override
-    public void sequenceOpened(final Sequence sequence) {
+    public void sequenceOpened(final @NotNull Sequence sequence) {
         sequence.addOverlay(tagPainter);
     }
 
@@ -57,7 +56,7 @@ public class TagPainterManager implements GlobalSequenceListener {
      */
     @Override
     public void sequenceClosed(final Sequence sequence) {
-
+        //
     }
 
     public void stopManager() {

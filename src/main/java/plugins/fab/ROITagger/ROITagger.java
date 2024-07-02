@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010-2023. Institut Pasteur.
+ * Copyright (c) 2010-2024. Institut Pasteur.
  *
  * This file is part of Icy.
  * Icy is free software: you can redistribute it and/or modify
@@ -18,16 +18,18 @@
 
 package plugins.fab.ROITagger;
 
-import icy.file.FileUtil;
-import icy.gui.frame.IcyFrame;
-import icy.gui.util.ComponentUtil;
-import icy.gui.util.GuiUtil;
-import icy.main.Icy;
-import icy.painter.Overlay;
-import icy.plugin.abstract_.PluginActionable;
-import icy.roi.ROI;
-import icy.sequence.Sequence;
-import icy.util.XMLUtil;
+import org.bioimageanalysis.icy.Icy;
+import org.bioimageanalysis.icy.extension.plugin.abstract_.PluginActionable;
+import org.bioimageanalysis.icy.extension.plugin.annotation_.IcyPluginName;
+import org.bioimageanalysis.icy.gui.GuiUtil;
+import org.bioimageanalysis.icy.gui.component.ComponentUtil;
+import org.bioimageanalysis.icy.gui.frame.IcyFrame;
+import org.bioimageanalysis.icy.io.FileUtil;
+import org.bioimageanalysis.icy.io.xml.XMLUtil;
+import org.bioimageanalysis.icy.model.overlay.Overlay;
+import org.bioimageanalysis.icy.model.roi.ROI;
+import org.bioimageanalysis.icy.model.sequence.Sequence;
+import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -42,6 +44,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+@IcyPluginName("ROI Tagger")
 public class ROITagger extends PluginActionable implements ActionListener {
     ArrayList<ROI> tagList = new ArrayList<>();
 
@@ -120,7 +123,7 @@ public class ROITagger extends PluginActionable implements ActionListener {
     }
 
 
-    private Document loadXMLDocument() {
+    private @NotNull Document loadXMLDocument() {
         Document document = XMLUtil.loadDocument(XMLFile);
         tagElements = new ArrayList<>();
 
@@ -181,7 +184,7 @@ public class ROITagger extends PluginActionable implements ActionListener {
         mainPanel.updateUI();
     }
 
-    private JPanel createTagButton(final Element tagElement) {
+    private @NotNull JPanel createTagButton(final Element tagElement) {
         final JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
@@ -276,7 +279,7 @@ public class ROITagger extends PluginActionable implements ActionListener {
     /**
      * remove ROI node of ID id.
      */
-    private void removeROINode(final Sequence sequence, final int id) {
+    private void removeROINode(final @NotNull Sequence sequence, final int id) {
         // get the tags node.
         final Node tagNode = sequence.getNode("tags");
         if (tagNode == null) return;
@@ -294,7 +297,7 @@ public class ROITagger extends PluginActionable implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(final ActionEvent e) {
+    public void actionPerformed(final @NotNull ActionEvent e) {
         //if ( e.getSource() == addANewPainter ) // FIXME : remove this test code
         //{
         //	getFocusedSequence().addPainter( new TagPainter() );
@@ -318,7 +321,7 @@ public class ROITagger extends PluginActionable implements ActionListener {
 
         if (e.getSource() == addANewTagToPool) {
             try {
-                final Element poolNode = XMLUtil.getElements(document.getDocumentElement(), "Pool").get(0);
+                final Element poolNode = XMLUtil.getElements(document.getDocumentElement(), "Pool").getFirst();
 
                 final String name;
                 mainFrame.setVisible(false);
