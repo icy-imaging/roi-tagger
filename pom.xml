@@ -7,11 +7,11 @@
     <parent>
         <groupId>org.bioimageanalysis.icy</groupId>
         <artifactId>pom-icy</artifactId>
-        <version>3.0.0-a.1</version>
+        <version>3.0.0-a.3</version>
     </parent>
 
     <artifactId>roi-tagger</artifactId>
-    <version>2.0.0-a.1</version>
+    <version>2.0.0-a.2</version>
 
     <name>ROI Tagger</name>
     <description>
@@ -28,11 +28,4 @@
             <artifactId>roi-pool</artifactId>
         </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>icy</id>
-            <url>https://nexus-icy.pasteur.cloud/repository/icy/</url>
-        </repository>
-    </repositories>
 </project>
