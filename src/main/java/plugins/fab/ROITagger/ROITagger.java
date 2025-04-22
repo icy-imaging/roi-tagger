@@ -258,7 +258,7 @@ public class ROITagger extends PluginActionable implements ActionListener {
 
         final JButton removeButton = new JButton("x");
         removeButton.setToolTipText("Remove this tag from this list.");
-        removeButton.addActionListener(_ -> {
+        removeButton.addActionListener(e-> {
             XMLUtil.removeAllChildren(tagElement);
             XMLUtil.removeNode(tagElement.getParentNode(), tagElement);
             XMLUtil.saveDocument(document, XMLFile);
