@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010-2024. Institut Pasteur.
+ * Copyright (c) 2010-2026. Institut Pasteur.
  *
  * This file is part of Icy.
  * Icy is free software: you can redistribute it and/or modify
@@ -321,7 +321,7 @@ public class ROITagger extends PluginActionable implements ActionListener {
 
         if (e.getSource() == addANewTagToPool) {
             try {
-                final Element poolNode = XMLUtil.getElements(document.getDocumentElement(), "Pool").getFirst();
+                final Element poolNode = XMLUtil.getElements(document.getDocumentElement(), "Pool").get(0);
 
                 final String name;
                 mainFrame.setVisible(false);
