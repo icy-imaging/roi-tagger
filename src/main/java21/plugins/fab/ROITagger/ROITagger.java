@@ -18,17 +18,17 @@
 
 package plugins.fab.ROITagger;
 
-import org.bioimageanalysis.icy.Icy;
-import org.bioimageanalysis.icy.extension.plugin.abstract_.PluginActionable;
-import org.bioimageanalysis.icy.extension.plugin.annotation_.IcyPluginName;
-import org.bioimageanalysis.icy.gui.GuiUtil;
-import org.bioimageanalysis.icy.gui.component.ComponentUtil;
-import org.bioimageanalysis.icy.gui.frame.IcyFrame;
-import org.bioimageanalysis.icy.io.FileUtil;
-import org.bioimageanalysis.icy.io.xml.XMLUtil;
-import org.bioimageanalysis.icy.model.overlay.Overlay;
-import org.bioimageanalysis.icy.model.roi.ROI;
-import org.bioimageanalysis.icy.model.sequence.Sequence;
+import fr.icy.Icy;
+import fr.icy.extension.plugin.abstract_.PluginActionable;
+import fr.icy.extension.plugin.annotation_.IcyPluginName;
+import fr.icy.gui.GuiUtil;
+import fr.icy.gui.component.ComponentUtil;
+import fr.icy.gui.frame.IcyFrame;
+import fr.icy.io.FileUtil;
+import fr.icy.io.xml.XMLUtil;
+import fr.icy.model.overlay.Overlay;
+import fr.icy.model.roi.ROI;
+import fr.icy.model.sequence.Sequence;
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
