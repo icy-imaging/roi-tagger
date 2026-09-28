@@ -7,22 +7,16 @@
     <parent>
         <groupId>fr.icy</groupId>
         <artifactId>pom-icy</artifactId>
-        <version>3.0.0-a.7</version>
+        <version>3.0.0-a.8-SNAPSHOT</version>
     </parent>
 
-    <groupId>fr.icy.extensions</groupId>
+    <groupId>fr.icy.extension</groupId>
     <artifactId>roi-tagger</artifactId>
-    <version>2.0.0-a.7</version>
+    <version>2.0.0-a.8-SNAPSHOT</version>
 
     <name>ROI Tagger</name>
-    <description>
-        Create a list of tag and apply them to ROIs.
-        Multi tag per ROI
-        Tags are stored in sequence (persistent).
-        Compatible with Spot Detector The tags are stored in the sequence and can be re-display by starting again the ROI Tagger or by
-        using compatible plugins such as the Spot Detector.
-    </description>
-    <url>https://icy.bioimageanalysis.org/</url>
+    <description>Create a list of tags and apply them to ROIs</description>
+    <url>http://icy.fr/</url>
     <inceptionYear>2011</inceptionYear>
 
     <scm>
@@ -65,12 +59,13 @@
     <contributors>
         <contributor>
             <name>Fabrice de Chaumont</name>
-            <roles>
-                <role>founder</role>
-            </roles>
         </contributor>
         <contributor>
             <name>Stéphane Dallongeville</name>
+        </contributor>
+        <contributor>
+            <name>Thomas Musset</name>
+            <properties><id>Azargas</id></properties>
         </contributor>
     </contributors>
 
@@ -88,9 +83,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>fr.icy.extensions</groupId>
+            <groupId>fr.icy.extension</groupId>
             <artifactId>roi-pool</artifactId>
-            <version>2.0.0-a.7</version>
+            <version>${fr.icy.extension.roi-pool.version}</version>
         </dependency>
     </dependencies>
 </project>

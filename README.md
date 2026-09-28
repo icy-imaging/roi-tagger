@@ -1,4 +1,4 @@
-![Version 2.0.0 alpha 7](https://img.shields.io/badge/v2.0.0-alpha_7-royalblue)
+![Version 2.0.0 alpha 8](https://img.shields.io/badge/v2.0.0-alpha_8-royalblue)
 ![Java 17+](https://img.shields.io/badge/OpenJDK-17+-5382A1?labelColor=E76F00)
 [![License: LGPL v3](https://img.shields.io/badge/LGPLv3-008033?logo=GPLv3&logoSize=auto)](https://www.gnu.org/licenses/lgpl-3.0)
 [![Twitter](https://img.shields.io/twitter/follow/Icy_BioImaging)](https://x.com/Icy_BioImaging)
@@ -13,13 +13,11 @@ Icy is developed and maintained by [Biological Image Analysis unit at Institut P
 
 Create a list of tags and apply them to ROIs.
 
-- Multi tag per ROI
+- Multi-tag per ROI
 - Tags are stored in the sequence (persistent)
 - Compatible with Spot Detector
 
 Tags are stored in the sequence and can be re-displayed by starting again the ROI Tagger or by using compatible plugins such as the Spot Detector.
-
-More detailed user documentation can be found on the ROI tagger documentation page on the Icy website: https://icy.bioimageanalysis.org/plugins/roi-tagger/
 
 ## Installation instructions
 
@@ -44,9 +42,9 @@ More detailed user documentation can be found on the ROI tagger documentation pa
 Add this dependency block in your `pom.xml`
 ```xml
 <dependency>
-    <groupId>fr.icy.extensions</groupId>
+    <groupId>fr.icy.extension</groupId>
     <artifactId>roi-tagger</artifactId>
-    <version>${fr.icy.extensions.roi-tagger.version}</version>
+    <version>${fr.icy.extension.roi-tagger.version}</version>
 </dependency>
 ```
 
